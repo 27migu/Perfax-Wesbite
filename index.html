@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-    <title>PERFAX Key Generator</title>
+<meta charset="UTF-8">
+<title>PERFAX Key Generator</title>
+<style>
+  /* Hintergrund dunkel, Neon-Look */
+  body {
+    background-color: #0a0a0a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 3em;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    margin-bottom: 40px;
+  }
+
+  .tier-btn {
+    background-color: #1a1a1a;
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    font-size: 1.5em;
+    padding: 15px 50px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #ff0000;
+    transition: all 0.2s ease;
+  }
+
+  .tier-btn:hover {
+    background-color: #ff0000;
+    color: #0a0a0a;
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+  }
+
+  #result {
+    margin-top: 40px;
+    font-size: 1.5em;
+    color: #ff4444;
+    text-shadow: 0 0 10px #ff0000;
+  }
+</style>
 </head>
 <body>
-    <h1>PERFAX Key Website</h1>
-    <p>Hier kannst du später Keys generieren.</p>
+<h1>PERFAX Keys</h1>
+
+<div>
+  <button class="tier-btn" onclick="generateKey('Free')">Free</button>
+  <button class="tier-btn" onclick="generateKey('Premium')">Premium</button>
+  <button class="tier-btn" onclick="generateKey('Enterprise')">Enterprise</button>
+</div>
+
+<p id="result"></p>
+
+<script>
+  // Funktion zur Key-Generierung
+  function generateKey(tier) {
+    const randomPart = Math.random().toString(36).substring(2, 10).toUpperCase();
+    const key = tier.substring(0, 4).toUpperCase() + '-' + randomPart;
+    document.getElementById('result').innerText = `Dein ${tier}-Key: ${key}`;
+    
+    // Hier später Firebase-Aufruf einfügen
+    // z.B. sendKeyToFirebase(key, tier);
+  }
+</script>
 </body>
 </html>
