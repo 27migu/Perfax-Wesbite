@@ -1,0 +1,266 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║              PERFAX - Häufige Befehle & Shortcuts                  ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+📍 VERZEICHNIS WECHSELN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cd C:\Users\schuv\Desktop\Perfax-Website
+
+
+🚀 SERVER STARTEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+npm start
+  → Startet Server auf http://127.0.0.1:5000
+
+npm run dev
+  → Development Mode mit Auto-Reload
+
+
+📦 DEPENDENCIES INSTALLIEREN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+npm install
+  → Installiert alle Dependencies aus package.json
+
+npm install PACKAGE_NAME
+  → Installiert einzelnes Package
+
+
+🔍 FEHLERSUCHE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+node server.js
+  → Startet Server mit Error-Output
+
+npm list
+  → Zeigt installierte Packages
+
+
+🌐 BROWSER ÖFFNEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Local Development:
+  http://127.0.0.1:5000
+  http://localhost:5000
+
+Discord OAuth Callback:
+  http://127.0.0.1:5000/callback/
+
+
+🔧 CONFIGURATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ändere PAYPAL_MODE in .env:
+  PAYPAL_MODE=sandbox    (Testing)
+  PAYPAL_MODE=live       (Production)
+
+Ändere STRIPE Keys:
+  sk_test_...            (Testing)
+  sk_live_...            (Production)
+
+
+💾 DATEI-BEARBEITUNG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Frontend Änderungen:
+  Bearbeite: index.html
+  Speichern: Ctrl+S
+  Browser refreshed automatisch
+
+Backend Änderungen:
+  Bearbeite: server.js
+  Speichern: Ctrl+S
+  Server startet automatisch neu
+
+
+🔒 SECRETS VERWALTEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+.env öffnen:
+  .env ist im Root-Verzeichnis
+  
+Secrets eintragen:
+  DISCORD_CLIENT_ID=...
+  DISCORD_CLIENT_SECRET=...
+  PAYPAL_CLIENT_ID=...
+  PAYPAL_CLIENT_SECRET=...
+  STRIPE_SECRET_KEY=...
+
+WICHTIG: .env NICHT in Git commiten!
+
+
+📊 TESTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Free Key Test:
+  1. npm start
+  2. Browser: http://127.0.0.1:5000
+  3. Discord Login
+  4. AGB akzeptieren
+  5. Klick auf FREE
+  6. Key sollte generiert werden ✓
+
+Payment Test:
+  1. Credentials in .env setzen
+  2. npm start
+  3. Wähle PREMIUM/ENTERPRISE
+  4. Payment Modal öffnet
+  5. Zahlung durchführen
+  6. Key generiert nach Zahlung ✓
+
+
+🐛 DEBUG MODUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Browser Console:
+  F12 → Console
+  Dort siehst du: Logs, Errors, Warnings
+
+Node Console:
+  npm start
+  Dort siehst du Server-Logs
+
+
+💻 EDITOR SHORTCUTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Speichern:
+  Ctrl+S
+
+Search:
+  Ctrl+F
+
+Find & Replace:
+  Ctrl+H
+
+Code Format:
+  Shift+Alt+F
+
+Terminal:
+  Ctrl+`
+
+
+⚡ POWER COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Starte schnell:
+  npm start
+
+Installiere + Starte:
+  npm install && npm start
+
+Clear npm Cache:
+  npm cache clean --force
+
+Reinstall Modules:
+  rm -r node_modules package-lock.json
+  npm install
+
+
+🔄 GIT COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Initialisiere Git:
+  git init
+
+Add Files:
+  git add .
+
+Commit:
+  git commit -m "Initial commit"
+
+Status:
+  git status
+
+Log:
+  git log
+
+
+🌍 DEPLOYMENT COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Zu Heroku:
+  heroku login
+  heroku create perfax-keygen
+  git push heroku main
+
+Zu Vercel:
+  npm i -g vercel
+  vercel --prod
+
+Environment Vars setzen:
+  heroku config:set KEY=VALUE
+  vercel env add KEY
+
+
+📈 MONITORING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Server läuft?
+  http://127.0.0.1:5000 öffnen
+
+Firebase aktiv?
+  https://console.firebase.google.com/
+
+Discord Webhook?
+  https://discord.com/developers/applications/
+
+Stripe Logs?
+  https://dashboard.stripe.com/logs
+
+
+⚠️ ERROR HANDLING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Port bereits in Benutzung?
+  Ändere PORT in .env oder:
+  npm start -- --port 3000
+
+Dependencies Fehler?
+  npm cache clean --force
+  npm install
+
+Server crasht?
+  npm start
+  Schau Console Output für Error
+
+
+🎓 CHEAT SHEET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Schnell zur Website:
+  http://127.0.0.1:5000
+
+Schnell zu Discord App:
+  https://discord.com/developers/applications/1484892924981415966
+
+Schnell zu Firebase:
+  https://console.firebase.google.com/
+
+Schnell zu PayPal:
+  https://developer.paypal.com/dashboard/
+
+Schnell zu Stripe:
+  https://dashboard.stripe.com/
+
+
+🆘 HILFE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dokumentation öffnen:
+  README.md
+  SETUP.md
+  PAYMENT_SETUP.md
+  FINAL_SUMMARY.txt
+
+Problem in Terminal?
+  npm start
+  (Output gründlich lesen)
+
+Browser Console Error?
+  F12 → Console → Error-Message lesen
+
+Weitere Hilfe:
+  Siehe README.md "Support & Troubleshooting"
