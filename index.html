@@ -628,7 +628,7 @@
 
         // Discord OAuth Configuration
         const DISCORD_CLIENT_ID = "1484892924981415966";
-        const REDIRECT_URI = window.location.origin + "/callback/";
+        const REDIRECT_URI = window.location.origin + window.location.pathname.replace('index.html', '') + 'callback/';
         const DISCORD_AUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=identify%20email`;
 
         // PayPal Configuration
