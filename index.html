@@ -664,7 +664,12 @@
                     },
                     body: JSON.stringify({ code: code })
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP Error: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
                         user = data.user;
@@ -672,13 +677,12 @@
                         // Entferne Code aus URL
                         window.history.replaceState({}, document.title, window.location.pathname);
                     } else {
-                        showError("❌ Discord Authentifizierung fehlgeschlagen: " + data.error);
+                        showError("❌ Discord Authentifizierung fehlgeschlagen: " + (data.error || "Unbekannter Fehler"));
                     }
                 })
                 .catch(error => {
                     console.error('Discord Callback Error:', error);
-                    // Fallback zu Simulation bei Fehler
-                    simulateDiscordLogin();
+                    showError("❌ Backend Fehler: Stelle sicher, dass der /discord-callback Endpoint läuft. Details: " + error.message);
                 });
             }
         }
