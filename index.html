@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -552,7 +553,7 @@
                         <li>Unbegrenzte Nutzung</li>
                         <li>1 Jahr gültig</li>
                     </ul>
-                    <button id="premiumBtn" style="width: 100%; margin-top: auto;" disabled onclick="selectPlan('Premium')">Jetzt kaufen</button>
+                    <button id="premiumBtn" style="width: 100%; margin-top: auto;" onclick="selectPlan('Premium')">Jetzt kaufen</button>
                 </div>
 
                 <div class="plan-card" onclick="selectPlan('Enterprise')">
@@ -564,7 +565,7 @@
                         <li>API Zugang</li>
                         <li>3 Jahre gültig</li>
                     </ul>
-                    <button id="enterpriseBtn" style="width: 100%; margin-top: auto;" disabled onclick="selectPlan('Enterprise')">Jetzt kaufen</button>
+                    <button id="enterpriseBtn" style="width: 100%; margin-top: auto;" onclick="selectPlan('Enterprise')">Jetzt kaufen</button>
                 </div>
             </div>
 
@@ -587,14 +588,14 @@
                 Wähle deine bevorzugte Zahlungsmethode:
             </p>
 
-            <div class="payment-option" onclick="initiateStripePayment()">
+            <div class="payment-option" style="opacity: 0.6; pointer-events: none;">
                 <h4>💳 Stripe Kreditkarte</h4>
-                <p>Visa, Mastercard, American Express</p>
+                <p style="color: #ff0000;">⚠️ Außerbetrieb</p>
             </div>
 
-            <div class="payment-option" onclick="initiatePayPalPayment()">
+            <div class="payment-option" style="opacity: 0.6; pointer-events: none;">
                 <h4>🅿️ PayPal</h4>
-                <p>Sichere Zahlung mit PayPal</p>
+                <p style="color: #ff0000;">⚠️ Außerbetrieb</p>
             </div>
 
             <div style="margin-top: 35px; padding-top: 25px; border-top: 2px solid rgba(255, 0, 0, 0.3);">
@@ -648,22 +649,12 @@
             window.location.href = DISCORD_AUTH_URL;
         }
 
-        function simulateDiscordLogin() {
-            user = {
-                id: Math.random().toString(36).substr(2, 9),
-                username: "TestUser_" + Math.floor(Math.random() * 10000),
-                email: "test" + Math.floor(Math.random() * 1000) + "@example.com",
-                avatar: "https://i.pravatar.cc/80?img=" + Math.floor(Math.random() * 70)
-            };
-            updateUI();
-        }
-
         /**
          * Handle Discord OAuth Callback
          */
         function handleDiscordCallback() {
             const params = new URLSearchParams(window.location.search);
-            const code = params.get('discord_code');
+            const code = params.get('code');
 
             if (code) {
                 showInfo("🔐 Discord Authentifizierung läuft...");
@@ -704,13 +695,9 @@
 
             const agbCheckbox = document.getElementById("agb");
             const freeBtn = document.querySelectorAll('.plan-card button')[0];
-            const premiumBtn = document.getElementById("premiumBtn");
-            const enterpriseBtn = document.getElementById("enterpriseBtn");
 
             agbCheckbox.addEventListener("change", function() {
                 freeBtn.disabled = !this.checked;
-                premiumBtn.disabled = !this.checked;
-                enterpriseBtn.disabled = !this.checked;
             });
         }
 
@@ -970,17 +957,10 @@
             }
         };
 
-        // Simulate Login for Testing (Remove in Production)
+        // Handle Discord Authentication on Page Load
         document.addEventListener('DOMContentLoaded', function() {
             // Versuche Discord Callback zu handhaben
             handleDiscordCallback();
-
-            // Falls kein Code vorhanden, lade Simulation
-            if (!user) {
-                setTimeout(() => {
-                    simulateDiscordLogin();
-                }, 500);
-            }
         });
     </script>
 </body>
